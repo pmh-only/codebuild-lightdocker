@@ -11,8 +11,8 @@ phases:
     commands:
       - export DOCKER_CLI_EXPERIMENTAL=enabled
       - docker manifest create $REPOSITORY_URI:latest $REPOSITORY_URI:latest-x86_64 $REPOSITORY_URI:latest-aarch64
-      - docker manifest annotate --arch amd64 $REPOSITORY_URI:latest-x86_64
-      - docker manifest annotate --arch arm64 $REPOSITORY_URI:latest-aarch64
+      - docker manifest annotate --arch amd64 $REPOSITORY_URI:latest $REPOSITORY_URI:latest-x86_64
+      - docker manifest annotate --arch arm64 $REPOSITORY_URI:latest $REPOSITORY_URI:latest-aarch64
   post_build:
     commands:
       - docker manifest push $REPOSITORY_URI:latest
