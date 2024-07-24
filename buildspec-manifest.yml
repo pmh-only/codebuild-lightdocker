@@ -3,7 +3,7 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - ACCOUNT_ID=$(aws sts get-caller-identity --query "UserId" --output text)
+      - ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
       - ECR_URI=$ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
       - REPOSITORY_URI=$ECR_URI/lightdocker
       - aws ecr get-login-password | docker login --username AWS --password-stdin $ECR_URI
