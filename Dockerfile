@@ -1,6 +1,6 @@
 FROM public.ecr.aws/docker/library/alpine:latest
 
-RUN apk add --no-cache docker-cli aws-cli-pyc
+RUN apk add --no-cache docker-cli aws-cli
 
 RUN printf '#!/bin/sh\n/bin/ash "$@"\n' > /bin/bash
 
